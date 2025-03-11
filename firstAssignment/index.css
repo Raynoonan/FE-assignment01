@@ -1,0 +1,13 @@
+/* use only external css, every element must be styled, create style rules
+using class, id, and element selectors  */
+
+/* element selectors */
+body {
+background-color: rgb(160, 174, 191);
+font-family:'Franklin Gothic Medium'
+}
+img{
+border-radius: 20px;
+border-style: solid;
+border-color: darkslateblue;
+}
