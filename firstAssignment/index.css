@@ -4,10 +4,21 @@ using class, id, and element selectors  */
 /* element selectors */
 body {
 background-color: rgb(160, 174, 191);
-font-family:'Franklin Gothic Medium'
+font-family:'Franklin Gothic Medium', sans-serif
 }
+
 img{
 border-radius: 20px;
 border-style: solid;
 border-color: darkslateblue;
 }
+h1{
+    text-shadow: 2px 2px darkslateblue;
+}
+
+/* class selectors */
+.list {
+    color: rgb(16, 250, 250);
+}
+
+/* id selectors */
