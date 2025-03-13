@@ -14,7 +14,13 @@ border-color: darkslateblue;
 }
 h1{
     text-shadow: 2px 2px rgb(122, 118, 151);
+    text-align: center;
 }
+th, tr {
+    text-indent: 40px;
+    letter-spacing: 1px;
+}
+
 
 /* class selectors */
 .list {
@@ -37,9 +43,40 @@ color:aliceblue;
     padding: 5px;
     width:fit-content;
     border-radius: 10px;
+    
 }
 .caption {
     font-style: italic;
     font-size: small;
+
+}
+    
+.header-columns {
+    background-color: lightblue;
+    border: 2px solid black;
 }
 /* id selectors */
+#table {
+    background-color: aliceblue;
+    border: 3px solid darkslateblue;
+    margin-left: auto;
+    margin-right: auto;
+}
+#caption {
+    font-size: 20px;
+    background-color: rgb(192, 213, 232);
+    border: 3px solid darkslateblue;
+}
+#form {
+    text-align: center;
+    background-color: aliceblue;
+    display:flex;
+    flex-direction: column;
+    max-width: 30vw;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    padding: 20px;
+
+    
+}
