@@ -2,14 +2,17 @@
 class Books {
     constuctor(title) {
         this.title = title
-        this.books = []
+        
     }
     describe() {
         return `The title of this book is ${this.title}.`
     }
 
-
+}
+class Menu {
 start() {
+    this.books = []
+    this.selectedBook = null
     while (true) {
 
         const selection = prompt(`1) for create title \n, 2) for view books \n, 3) for delete \n, and 4) for exit`)
@@ -22,7 +25,8 @@ start() {
         } else {
             alert("GoodBye!")
         }
-    }
+    }4
+
 }
 
 
@@ -35,7 +39,7 @@ viewBooks() {
     let index = prompt('Enter index of the book you want to view:')
     if(index > -1 && index < this.books.length) {
         this.selectedBook = this.books[index]
-        let description = 'Book title:' + this.selectedBook.title + '\n'
+        let view = "Book title:" + this.selectedBook.title
     }
 }
 
@@ -49,5 +53,5 @@ deleteBook() {
 
 }
 
-let books = new Books()
+let books = new Menu()
 books.start()
