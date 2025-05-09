@@ -1,5 +1,6 @@
 
 
+let expect = chai.expect
 
 describe('Test dealDeck function', () => {
     it('Should deal 26 cards to each player', () => {
@@ -24,8 +25,8 @@ describe('Test dealDeck function', () => {
                 
             }
         
-           expect(this.player1.hand.length = 26)
-           expect(this.player2.hand.length = 26)
+           expect(this.player1.hand.length === 26)
+           expect(this.player2.hand.length === 26)
     })
 })
 
