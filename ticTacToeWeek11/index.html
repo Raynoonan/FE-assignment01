@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="myStyle.css">
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+<body>
+    
+<h1 class="text-center">Tic Tac Toe</h1>
+<h3 id="player1">Player 1: X</h3>
+<h3 id="player2">Player 2: O</h3>
+
+<!-- alerts -->
+
+<div id="winner" class="alert alert-dark text-center m-0 fs-3" role="alert">
+   
+</div>
+
+<div id="tie" class="alert alert-dark text-center m-0 fs-3" role="alert">
+  It's a tie!
+</div>
+
+    <!-- 3x3 columns with buttons inside -->
+
+<div class="container m-auto">
+<div id="grid" class=" container container-outline-dark m-auto p-0 text-center 
+align-middle border border-dark">
+
+<div class="row fs-1 g-0">
+ <div id="box1" class="box col p-3 border border-dark"></div>
+ <div id="box2" class="box col p-3 border border-dark"></div>
+ <div id="box3" class="box col p-3 border border-dark"></div>
+</div>
+
+<div class="row fs-1 g-0">
+ <div id="box4" class="box col p-3 border border-dark"></div>
+ <div id="box5" class="box col p-3 border border-dark"></div>
+ <div id="box6" class="box col p-3  border border-dark"></div>
+</div>
+
+<div class="row fs-1 g-0">
+<div id="box7" class="box col p-3 border border-dark"></div>
+ <div id="box8" class="box col p-3 border border-dark"></div>
+ <div id="box9" class="box col p-3 border border-dark"></div>
+</div>
+
+</div>
+</div>
+
+<!-- button to reset game -->
+<div class="d-grid col-2 m-auto pt-5">
+    <button id="start" type="button" class="btn btn-dark m-3">Start</button>
+    <button id= "reset" type="button" class="btn btn-dark">Reset Game</button>
+
+</div>
+    <script src="ticTacToe.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>
