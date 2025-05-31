@@ -4,20 +4,20 @@
 //     renderDogImages(data)
 // }
 
-
+let dogsData = null
 async function fetchDogImages() {
 
  const response = await fetch(`https://api.thedogapi.com/v1/images/search?limit=10&has_breeds=1&x-api-key=${API_KEY}`)
  const data = await response.json()
- console.log(data)
+ dogsData = data;
  renderDogImages(data)
-  
 }
+  
 
 const imageContainer = document.getElementById("image-container")
 
 function renderDogImages(dogs) {
-    console.log("dogs", dogs);
+
     
    
     imageContainer.innerHTML = '';
@@ -27,9 +27,9 @@ function renderDogImages(dogs) {
         dogDiv.className = 'dog-item';
         
         dogDiv.innerHTML = `
-            <img class="img-thumbnail" src="${dog.url}" alt="Dog image" style="width: 200px; height: 200px; object-fit: cover; margin: 10px;" />
+            <img class="img-thumbnail" src="${dog.url}" alt="Dog image" style="width: 200px; height: 200px; object-fit: cover; margin: 10px;" />`
           
-            <h3>${dog.breeds && dog.breeds.length > 0 ? dog.breeds[0].name : 'Mixed Breed'}</h3>`
+            // <h3>${dog.breeds && dog.breeds.length > 0 ? dog.breeds[0].name : 'Mixed Breed'}</h3>
         ;
         
         imageContainer.appendChild(dogDiv);
@@ -49,7 +49,9 @@ function renderDogImages(dogs) {
 //     `
   
 // }
-// create
+
+
+
 // let lastNewDog = null
 // FormData = new FormData()
 
@@ -85,52 +87,62 @@ function renderDogImages(dogs) {
 let lastNewDog = null;
 
 async function onAddDogClick() {
-    try {
+   try {
+       const fileInput = document.getElementById('dogImageInput');
+       const file = fileInput.files[0];
        
-        const fileResponse = await fetch('Week12API\boxer-pitbull-mix.jpg');
-        if (!fileResponse.ok) {
-            throw new Error("Failed to fetch the image file from the local server.");
-        }
-
-      
-        const fileBlob = await fileResponse.blob();
-
+       if (!file) {
+           throw new Error("Please select a file first.");
+       }
        
-        const formData = new FormData();
-        formData.append('file', fileBlob, 'boxer-pitbull-mix.jpg');
-
-        
-        const response = await fetch('https://api.thedogapi.com/v1/images/upload', {
-            method: "POST",
-            headers: {
-                "x-api-key": API_KEY             },
-            body: formData
-        });
-
-        if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(`HTTP error! Status: ${response.status}, Message: ${errorData.message}`);
-        }
-
-        const newDog = await response.json();
-        lastNewDog = newDog;
-        console.log(" Image uploaded successfully:", newDog);
-    } catch (error) {
-        console.error("Error uploading image:", error);
-    }
+       console.log(file);
+       
+       const formData = new FormData();
+       formData.append('file', file);
+       
+       const response = await fetch('https://api.thedogapi.com/v1/images/upload', {
+           method: "POST",
+           headers: {
+               "x-api-key": API_KEY
+           },
+           body: formData
+       });
+       
+       if (!response.ok) {
+           const errorData = await response.json();
+           throw new Error(`HTTP error! Status: ${response.status}, Message: ${errorData.message}`);
+       }
+       
+       const newDog = await response.json();
+       lastNewDog = newDog;
+       console.log("Image uploaded successfully:", newDog);
+       
+   } catch (error) {
+       console.error("Error uploading image:", error);
+   }
 }
+
+
 //delete
  
 async function deleteDog() {
-  if(lastNewDog === null) {
-    console.log("No dog to delete")
-    return
-  }
-fetch(`https://api.thedogapi.com/v1/images/:image_id&x-api-key=${API_KEY}` + newDog, {
-  method: "DELETE",
-  headers: { "Content-Type": "application/json"},
-  headers: { "x-api-key" : API_KEY},
-  body: JSON.stringify(lastNewDog)
-})
+    const dogToDelete = prompt("Enter 1-10 to delete a dog")
+    console.log('beofre',dogsData)
+    const updatesDogs = dogsData.filter((dogs)=> dogs.id !== dogsData [dogToDelete].id );
+    console.log('after',updatesDogs)
+    renderDogImages(updatesDogs);
+//   if(lastNewDog === null) {
+//     console.log("No dog to delete")
+//     return
+//   }
+
+// fetch(`https://api.thedogapi.com/v1/images/:image_id&x-api-key=${API_KEY}` + dogsData[dogToDelete].id, {
+//   method: "DELETE",
+//   headers: { "Content-Type": "application/json"},
+//   headers: { "x-api-key" : API_KEY},
+//   body: JSON.stringify(dogToDelete)
+// })
+//fetchDogImages(dogsData[dogToDelete].id);
+
 }
 
