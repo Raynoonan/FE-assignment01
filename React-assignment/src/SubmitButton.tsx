@@ -1,14 +1,26 @@
 
 
-export default function SubmitButton({onClick}: {onClick: () => void}) {
-
+type ButtonProps = {
+    addTask: ()=>void
+    deleteTask: ()=>void
+}
+export default function SubmitButton({addTask, deleteTask}:ButtonProps) {
+    
     return (
-        <div>
-            <button className="btn" id="submitButton" 
-                    onClick={onClick}>
+        <>
+      
+            <div className="mx-auto" >
+            {/* <button className="btn" id="submitButton" >
                 Submit
+            </button> */}
+            <button className="btn" id="addButton" onClick={addTask}>
+                Add
             </button>
-         
+            <button className="btn" id="deleteButton" onClick={deleteTask}>
+                Delete
+            </button>
         </div>
+       
+        </>
     )
 }

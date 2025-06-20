@@ -4,14 +4,16 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #3d3a5f;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #e4e4e4;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
+
 
 a {
   font-weight: 500;
@@ -23,10 +25,12 @@ a:hover {
 }
 
 body {
-  margin: 0;
+  margin: center;
   display: flex;
   min-width: 320px;
   min-height: 100vh;
+  
+ 
 }
 
 h1 {
@@ -44,6 +48,7 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  margin: 5px;
 }
 button:hover {
   border-color: #6978ff;
@@ -51,6 +56,13 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+#button2 { 
+  background-color: rgb(171, 171, 171); color:black;
+  font-size: 10px;
+  
+
 }
 
 @media (prefers-color-scheme: light) {

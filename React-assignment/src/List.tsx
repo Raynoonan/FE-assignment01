@@ -1,12 +1,26 @@
+type Task = {
+    id:number;
+    text:string
+}
 
-
-export default function List({ input }: {input: string[]} ) {
+interface listProps {
+    tasks:Task[]
+}
+export default function List({tasks}:listProps) {
+  
     return (
-    <div className="d-flex flex-column"> 
-    List
-        <ul>
-            {input.map(input => <li>{input}</li>)}
+    <div> 
+    To do:
+        <ul className="list-group" >
+            {tasks.map(task => 
+            <div style={{display: "flex"}}>
+            <li className="list-group-item">{task.text}</li> <input type="checkbox"></input>
+            </div>)
+            
+            }
+            
         </ul> 
     </div>
     )
 }
+
