@@ -25,6 +25,7 @@ export default function Input({handleUserInput, changeColor}:InputProps) {
             <button style={{backgroundColor: 'CornFlowerBlue'}} onClick={() => changeColor('CornFlowerBlue')}>blue</button>
             <button style={{backgroundColor: 'pink'}} onClick={() => changeColor('pink')}>pink</button>
             <button style={{backgroundColor: 'Chartreuse'}} onClick={() => changeColor('Chartreuse')}>green</button>
+            <button style={{backgroundColor: 'DarkOrchid'}} onClick={() => changeColor('DarkOrchid')}>purple</button>
         </Modal.Body>
         <Modal.Footer>
           <Button id='button2' style={{fontSize: 10}} onClick={handleClose}>
